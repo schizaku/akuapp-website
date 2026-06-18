@@ -12,22 +12,32 @@ const { appStore, googlePlay } = Astro.props;
 <div class="flex flex-col gap-3 min-[420px]:flex-row">
   <a
     href={appStore.href}
-    class="inline-flex min-h-14 items-center justify-center rounded-lg bg-black px-5 py-3 text-left text-white ring-1 ring-white/15 transition hover:-translate-y-0.5 hover:ring-white/30"
+    aria-label={`Download ${appStore.label}`}
+    class="inline-flex min-h-14 min-w-44 items-center justify-center rounded-md bg-black px-4 py-2 text-left text-white ring-1 ring-white/20 transition hover:-translate-y-0.5 hover:ring-white/35"
   >
-    <span class="mr-3 text-2xl leading-none">A</span>
+    <svg class="mr-3 h-8 w-8 shrink-0" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+      <path d="M17.05 12.55c-.02-2.18 1.78-3.23 1.86-3.28-1.02-1.49-2.6-1.7-3.15-1.72-1.33-.14-2.62.79-3.3.79-.69 0-1.73-.77-2.85-.75-1.46.02-2.82.85-3.57 2.16-1.54 2.66-.39 6.57 1.09 8.72.74 1.06 1.6 2.24 2.73 2.2 1.1-.04 1.51-.7 2.84-.7 1.31 0 1.69.7 2.85.68 1.18-.02 1.93-1.06 2.64-2.13.85-1.22 1.19-2.43 1.2-2.49-.03-.01-2.31-.89-2.34-3.48Z" />
+      <path d="M14.9 6.15c.6-.73 1.01-1.73.9-2.75-.87.04-1.96.6-2.59 1.32-.56.65-1.06 1.69-.93 2.68.98.08 1.99-.5 2.62-1.25Z" />
+    </svg>
     <span>
-      <span class="block text-[0.68rem] uppercase leading-none text-zinc-300">Download on the</span>
-      <span class="mt-1 block text-base font-semibold leading-none">{appStore.label}</span>
+      <span class="block text-[0.62rem] leading-none text-zinc-200">Download on the</span>
+      <span class="mt-1 block text-lg font-semibold leading-none tracking-normal">{appStore.label}</span>
     </span>
   </a>
   <a
     href={googlePlay.href}
-    class="inline-flex min-h-14 items-center justify-center rounded-lg bg-zinc-900 px-5 py-3 text-left text-white ring-1 ring-white/15 transition hover:-translate-y-0.5 hover:ring-white/30"
+    aria-label={`Get it on ${googlePlay.label}`}
+    class="inline-flex min-h-14 min-w-44 items-center justify-center rounded-md bg-black px-4 py-2 text-left text-white ring-1 ring-white/20 transition hover:-translate-y-0.5 hover:ring-white/35"
   >
-    <span class="mr-3 text-2xl leading-none">G</span>
+    <svg class="mr-3 h-8 w-8 shrink-0" viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M5.4 3.9c-.38.4-.6 1-.6 1.76v20.68c0 .76.22 1.36.62 1.76l.08.08L17.1 16.16v-.32L5.48 3.82l-.08.08Z" fill="#00f0ff" />
+      <path d="m20.96 20.18-3.86-4.02v-.32l3.87-4.02.08.05 4.58 2.6c1.31.75 1.31 1.98 0 2.73l-4.58 2.61-.09.37Z" fill="#ffd400" />
+      <path d="m21.05 19.81-3.95-3.97L5.4 28.1c.6.64 1.58.72 2.69.09l12.96-8.38Z" fill="#ff3d62" />
+      <path d="M21.05 11.87 8.09 3.49C6.98 2.86 6 2.94 5.4 3.58l11.7 12.26 3.95-3.97Z" fill="#00d084" />
+    </svg>
     <span>
-      <span class="block text-[0.68rem] uppercase leading-none text-zinc-300">Get it on</span>
-      <span class="mt-1 block text-base font-semibold leading-none">{googlePlay.label}</span>
+      <span class="block text-[0.62rem] uppercase leading-none text-zinc-200">Get it on</span>
+      <span class="mt-1 block text-lg font-semibold leading-none tracking-normal">{googlePlay.label}</span>
     </span>
   </a>
 </div>
