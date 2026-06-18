@@ -102,39 +102,55 @@ export const apps: AppInfo[] = [
   },
   {
     slug: "driftombie",
-    name: "Driftombie",
+    name: "Driftombie - Drift or Die",
     category: "Game",
-    tagline: "Drift, survive, and outdrive the undead.",
+    tagline: "Drift. Slay. Survive.",
     shortDescription:
-      "A punchy mobile survival driving game about clean drifts and close escapes.",
+      "Zombie-infested streets. One weapon: your steering wheel.",
     description: [
-      "Driftombie turns survival into a tight driving loop: read the road, angle the car, and chain drifts while danger closes in from every side.",
-      "Each run is designed to be quick to start and hard to put down, with arcade energy, upgrade hooks, and satisfying moments when a risky turn pays off.",
-      "It is built for players who like fast retries, simple controls, and a little chaos in their pockets."
+      "Welcome to an arcade zombie survival drifting game where the city is overrun and the streets are filled with the walking dead. Your only real weapon is a heavily armored car, quick reflexes, and the ability to hold a perfect drift under pressure.",
+      "Hit the gas, burn rubber, slide through hordes, and crush zombies to build score combos. Different terrain changes the feel of every run, from icy long slides to heavy desert sand and grippy city asphalt.",
+      "Driftombie adds global maps, zombie variety, leaderboards, unlockable cars, custom skins, and dynamic pickups into one fast survival loop. Master the drift, avoid civilians, collect resources, and keep moving - staying still for too long means game over."
     ],
-    icon: placeholder("512x512", "991b1b", "DZ"),
+    icon: "/assets/apps/driftombie/logo.png",
+    featureGraphic: "/assets/apps/driftombie/feature-graphic.png",
     screenshots: [
-      placeholder("450x800", "991b1b", "Drift"),
-      placeholder("450x800", "7f1d1d", "Survive"),
-      placeholder("450x800", "365314", "Upgrade"),
-      placeholder("450x800", "111827", "Run")
+      "/assets/apps/driftombie/screen-1.jpeg",
+      "/assets/apps/driftombie/screen-2.jpeg",
+      "/assets/apps/driftombie/screen-3.jpeg",
+      "/assets/apps/driftombie/screen-4.jpeg"
     ],
-    accent: "from-red-400 via-lime-300 to-zinc-200",
+    accent: "from-purple-500 via-lime-300 to-zinc-100",
     features: [
       {
         icon: "Gamepad2",
-        title: "Arcade control",
-        description: "Simple steering tuned for quick sessions and dramatic saves."
+        title: "Drift physics",
+        description: "Steer, accelerate, brake, and control your angle across asphalt, sand, ice, and snow."
       },
       {
         icon: "Zap",
-        title: "High-pressure runs",
-        description: "Survive longer, score higher, and chase that one better attempt."
+        title: "Zombie action",
+        description: "Smash normal zombies, react to faster punk zombies, and avoid innocent civilians."
       },
       {
         icon: "Gauge",
-        title: "Upgrade rhythm",
-        description: "Build momentum through rewards, unlocks, and run-to-run goals."
+        title: "World maps",
+        description: "Drift through Istanbul streets, London boulevards, and Paris avenues."
+      },
+      {
+        icon: "Trophy",
+        title: "Global leaderboards",
+        description: "Compete in weekly, monthly, and all-time rankings against players worldwide."
+      },
+      {
+        icon: "Sparkles",
+        title: "Cars and skins",
+        description: "Earn coins, unlock vehicles, and customize your post-apocalyptic garage."
+      },
+      {
+        icon: "Heart",
+        title: "Dynamic pickups",
+        description: "Collect hearts, wrenches, and coins while avoiding dangerous bombs."
       }
     ],
     appStore: { label: "App Store", href: "#" },
