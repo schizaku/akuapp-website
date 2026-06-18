@@ -32,6 +32,7 @@ export type AppInfo = {
   shortDescription: string;
   description: string[];
   icon: string;
+  featureGraphic?: string;
   screenshots: string[];
   accent: string;
   features: AppFeature[];
@@ -125,39 +126,55 @@ export const apps: AppInfo[] = [
   },
   {
     slug: "love-cards",
-    name: "Love Cards",
+    name: "Love Cards: Couple Questions",
     category: "Lifestyle",
-    tagline: "Small notes for big feelings.",
+    tagline: "Ask. Answer. Connect.",
     shortDescription:
-      "Create sweet, shareable cards for relationships, anniversaries, and everyday affection.",
+      "Romantic questions, conversation cards, and a private room for couples.",
     description: [
-      "Love Cards helps you turn a quick thought into something that feels a little more intentional. Pick a card mood, write a message, and make it feel personal.",
-      "The experience stays simple and warm, with templates that work for romantic notes, caring check-ins, and tiny celebrations.",
-      "It is made for the moments when a plain text message is not quite enough."
+      "Love Cards is a conversation card app for couples who want deeper, warmer, and more playful moments together. One good question can change the mood of the whole evening, whether you are at home, on a date night, or spending time together from a distance.",
+      "Explore romantic, fun, emotional, and thoughtful question cards designed to help you get to know each other better. Save favorites, create and share beautiful cards, complete daily tasks, and use credits to discover more prompts.",
+      "Couple Room lets partners create a private room, draw cards, write answers, and rate each other. Love Cards is not therapy or relationship counseling; it is a card-based way to turn conversation into an easy, intimate, and enjoyable ritual."
     ],
-    icon: placeholder("512x512", "be185d", "LC"),
+    icon: "/assets/apps/love-cards/logo.png",
+    featureGraphic: "/assets/apps/love-cards/feature-graphic.png",
     screenshots: [
-      placeholder("450x800", "be185d", "Cards"),
-      placeholder("450x800", "9f1239", "Message"),
-      placeholder("450x800", "7c2d12", "Style"),
-      placeholder("450x800", "713f12", "Share")
+      "/assets/apps/love-cards/screen-1.jpg",
+      "/assets/apps/love-cards/screen-2.jpg",
+      "/assets/apps/love-cards/screen-3.jpg",
+      "/assets/apps/love-cards/screen-4.jpg"
     ],
-    accent: "from-pink-400 via-rose-300 to-amber-300",
+    accent: "from-pink-500 via-rose-400 to-orange-300",
     features: [
       {
         icon: "Heart",
-        title: "Ready moods",
-        description: "Start with romantic, playful, grateful, or gentle card styles."
-      },
-      {
-        icon: "PenLine",
-        title: "Personal messages",
-        description: "Write short notes that feel direct, honest, and easy to share."
+        title: "Couple questions",
+        description: "Explore romantic, fun, emotional, and thoughtful prompts for better conversations."
       },
       {
         icon: "Sparkles",
-        title: "Polished cards",
-        description: "Make everyday affection look considered without extra effort."
+        title: "Beautiful cards",
+        description: "Create and share polished question cards that feel warm and intentional."
+      },
+      {
+        icon: "PenLine",
+        title: "Favorites",
+        description: "Save the questions that matter so you can return to them later."
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Couple Room",
+        description: "Create a private room, draw cards, write answers, and rate each other."
+      },
+      {
+        icon: "Trophy",
+        title: "Daily tasks",
+        description: "Complete small daily activities and use credits to discover more cards."
+      },
+      {
+        icon: "Zap",
+        title: "Premium upgrade",
+        description: "Unlock unlimited questions and enjoy an ad-free experience."
       }
     ],
     appStore: { label: "App Store", href: "#" },

@@ -33,13 +33,32 @@ const { app } = Astro.props;
     </div>
     <div class="relative min-h-96 overflow-hidden rounded-lg border border-white/10 bg-white/[0.045] p-4 shadow-2xl shadow-black/30">
       <div class={`absolute inset-x-0 top-0 h-2 bg-gradient-to-r ${app.accent}`}></div>
-      <div class="grid h-full place-items-center">
-        <img
-          src={app.screenshots[0]}
-          alt={`${app.name} primary screenshot placeholder`}
-          class="aspect-[9/16] h-[34rem] max-h-[68vh] rounded-lg border border-white/10 object-cover"
-        />
-      </div>
+      {app.featureGraphic ? (
+        <div class="grid h-full content-center gap-4 pt-2">
+          <img
+            src={app.featureGraphic}
+            alt={`${app.name} feature graphic`}
+            class="aspect-[1024/500] w-full rounded-lg border border-white/10 bg-white object-cover"
+          />
+          <div class="grid grid-cols-3 gap-3">
+            {app.screenshots.slice(0, 3).map((screenshot, index) => (
+              <img
+                src={screenshot}
+                alt={`${app.name} screenshot preview ${index + 1}`}
+                class="aspect-[9/16] min-h-0 w-full rounded-lg border border-white/10 object-cover shadow-xl shadow-black/20"
+              />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div class="grid h-full place-items-center">
+          <img
+            src={app.screenshots[0]}
+            alt={`${app.name} primary screenshot placeholder`}
+            class="aspect-[9/16] h-[34rem] max-h-[68vh] rounded-lg border border-white/10 object-cover"
+          />
+        </div>
+      )}
     </div>
   </section>
 
