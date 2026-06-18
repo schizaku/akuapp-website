@@ -48,37 +48,53 @@ export const apps: AppInfo[] = [
     slug: "secure-qr-scanner",
     name: "Secure QR Scanner",
     category: "Utility",
-    tagline: "Fast QR scans with a privacy-first mindset.",
+    tagline: "Scan QR codes safely.",
     shortDescription:
-      "Scan QR codes quickly, preview destinations, and keep your everyday links tidy.",
+      "Scan QR codes safely, verify links, and save favorites - all in one app.",
     description: [
-      "Secure QR Scanner is built for quick checks without turning a simple scan into a noisy experience. Open the app, scan a code, and review the result before you jump anywhere.",
-      "The app keeps the interface focused on the task: clear scan results, practical history, and helpful warnings for links that deserve a second look.",
-      "It is a utility for people who scan codes often and want the moment to feel calm, fast, and under control."
+      "Secure QR Scanner is a fast, secure, and user-friendly QR code scanner that helps protect you from malicious links, suspicious destinations, and phishing attempts.",
+      "The app combines an optimized camera interface with real-time URL analysis. It can warn about unencrypted connections, invalid domains, IP-based links, shortened URLs, tracking parameters, and common phishing keywords before you open a result.",
+      "Secure QR Scanner is built for everyday QR use: restaurant menus, event pages, WiFi connections, contact sharing, and quick link checks. It keeps history short and practical, lets you save favorites, supports 10 languages, and keeps core scanning private on your device."
     ],
-    icon: placeholder("512x512", "0f766e", "QR"),
+    icon: "/assets/apps/secure-qr-scanner/logo.png",
+    featureGraphic: "/assets/apps/secure-qr-scanner/feature-graphic.png",
     screenshots: [
-      placeholder("450x800", "0f766e", "Scan"),
-      placeholder("450x800", "134e4a", "Preview"),
-      placeholder("450x800", "155e75", "History"),
-      placeholder("450x800", "164e63", "Safety")
+      "/assets/apps/secure-qr-scanner/screen-1.png",
+      "/assets/apps/secure-qr-scanner/screen-2.png",
+      "/assets/apps/secure-qr-scanner/screen-3.png",
+      "/assets/apps/secure-qr-scanner/screen-4.png"
     ],
-    accent: "from-teal-400 via-cyan-300 to-emerald-400",
+    accent: "from-sky-400 via-cyan-300 to-emerald-300",
     features: [
       {
         icon: "ScanLine",
-        title: "Quick scanning",
-        description: "Open straight to the camera and read everyday QR codes in seconds."
+        title: "Lightning-fast scanning",
+        description: "Use an optimized camera interface to read QR codes instantly."
       },
       {
         icon: "ShieldCheck",
-        title: "Link preview",
-        description: "Review URLs and copied text before taking the next step."
+        title: "Phishing protection",
+        description: "Analyze URLs for suspicious domains, keywords, and risky patterns."
       },
       {
         icon: "History",
-        title: "Clean history",
-        description: "Keep recent scans organized so important codes are easy to find."
+        title: "Smart history",
+        description: "Store up to 10 recent QR codes for 7 days without clutter."
+      },
+      {
+        icon: "Sparkles",
+        title: "Favorites",
+        description: "Save important QR codes indefinitely for quick access later."
+      },
+      {
+        icon: "Zap",
+        title: "Offline ready",
+        description: "Scan and review common QR results even without an internet connection."
+      },
+      {
+        icon: "Bell",
+        title: "10 languages",
+        description: "Use the app in English, Turkish, Spanish, French, German, and more."
       }
     ],
     appStore: { label: "App Store", href: "#" },
