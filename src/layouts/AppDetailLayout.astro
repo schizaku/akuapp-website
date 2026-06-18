@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Icon from "@/components/Icon.astro";
+import PageNavigator from "@/components/PageNavigator.astro";
 import ScreenshotGallery from "@/components/ScreenshotGallery.astro";
 import StoreButtons from "@/components/StoreButtons.astro";
 import type { AppInfo } from "@/data/apps";
@@ -10,6 +11,12 @@ interface Props {
 }
 
 const { app } = Astro.props;
+
+const pageNavItems = [
+  { label: "Screenshots", href: "#screenshots" },
+  { label: "Features", href: "#features" },
+  { label: "Description", href: "#description" }
+];
 ---
 
 <BaseLayout title={`${app.name} - Aku Apps`} description={app.shortDescription}>
@@ -55,7 +62,9 @@ const { app } = Astro.props;
     </div>
   </section>
 
-  <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+  <PageNavigator items={pageNavItems} />
+
+  <section id="screenshots" class="mx-auto max-w-6xl scroll-mt-32 px-4 py-12 sm:px-6 lg:px-8">
     <div class="mb-6 flex items-end justify-between gap-4">
       <div>
         <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-200">Screenshots</p>
@@ -65,7 +74,7 @@ const { app } = Astro.props;
     <ScreenshotGallery screenshots={app.screenshots} appName={app.name} />
   </section>
 
-  <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+  <section id="features" class="mx-auto max-w-6xl scroll-mt-32 px-4 py-12 sm:px-6 lg:px-8">
     <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-200">Features</p>
     <h2 class="mt-2 text-3xl font-bold text-white">Built around the core loop</h2>
     <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -81,7 +90,7 @@ const { app } = Astro.props;
     </div>
   </section>
 
-  <section class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+  <section id="description" class="mx-auto max-w-3xl scroll-mt-32 px-4 py-12 sm:px-6 lg:px-8">
     <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-200">Description</p>
     <div class="mt-5 space-y-5 text-base leading-8 text-zinc-300">
       {app.description.map((paragraph) => <p>{paragraph}</p>)}
