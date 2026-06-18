@@ -1,0 +1,11 @@
+---
+import PrivacyLayout from "@/layouts/PrivacyLayout.astro";
+import { getAppBySlug } from "@/data/apps";
+
+const app = getAppBySlug("secure-qr-scanner");
+if (!app) {
+  throw new Error("Secure QR Scanner app data is missing.");
+}
+---
+
+<PrivacyLayout app={app} />

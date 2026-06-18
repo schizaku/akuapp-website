@@ -1,0 +1,11 @@
+---
+import AppDetailLayout from "@/layouts/AppDetailLayout.astro";
+import { getAppBySlug } from "@/data/apps";
+
+const app = getAppBySlug("cosmic-energy");
+if (!app) {
+  throw new Error("Cosmic Energy app data is missing.");
+}
+---
+
+<AppDetailLayout app={app} />

@@ -1,0 +1,37 @@
+---
+import { apps } from "@/data/apps";
+---
+
+<footer class="border-t border-white/10 bg-zinc-950/72">
+  <div class="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-[1.2fr_1fr_1fr] lg:px-8">
+    <div>
+      <a href="/" class="inline-flex items-center gap-3">
+        <span class="grid h-9 w-9 place-items-center rounded-lg bg-white text-sm font-black text-zinc-950">A</span>
+        <span class="font-semibold text-white">Aku Apps</span>
+      </a>
+      <p class="mt-4 max-w-sm text-sm leading-6 text-zinc-400">
+        Independent mobile apps, utilities, and compact games built with care.
+      </p>
+    </div>
+    <div>
+      <h2 class="text-sm font-semibold text-white">Stores</h2>
+      <div class="mt-4 grid gap-3 text-sm text-zinc-400">
+        <a class="transition hover:text-white" href="#">App Store profile</a>
+        <a class="transition hover:text-white" href="#">Google Play profile</a>
+      </div>
+    </div>
+    <div>
+      <h2 class="text-sm font-semibold text-white">Privacy</h2>
+      <div class="mt-4 grid gap-3 text-sm text-zinc-400">
+        {apps.map((app) => (
+          <a class="transition hover:text-white" href={`/privacy/${app.slug}`}>
+            {app.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+  <div class="mx-auto max-w-6xl border-t border-white/10 px-4 py-5 text-sm text-zinc-500 sm:px-6 lg:px-8">
+    (c) {new Date().getFullYear()} Aku Apps. All rights reserved.
+  </div>
+</footer>

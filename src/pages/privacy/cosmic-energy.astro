@@ -1,0 +1,11 @@
+---
+import PrivacyLayout from "@/layouts/PrivacyLayout.astro";
+import { getAppBySlug } from "@/data/apps";
+
+const app = getAppBySlug("cosmic-energy");
+if (!app) {
+  throw new Error("Cosmic Energy app data is missing.");
+}
+---
+
+<PrivacyLayout app={app} />

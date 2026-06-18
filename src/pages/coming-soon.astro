@@ -1,0 +1,41 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Coming Soon - Aku Apps" description="A teaser page for the next Aku Apps release.">
+  <section class="mx-auto grid min-h-[calc(100vh-5rem)] max-w-3xl place-items-center px-4 py-16 text-center sm:px-6 lg:px-8">
+    <div class="w-full">
+      <img
+        src="https://placehold.co/512x512/0f172a/f8fafc/png?text=Next"
+        alt="Upcoming app icon placeholder"
+        class="mx-auto h-36 w-36 rounded-3xl border border-white/10 object-cover shadow-glow sm:h-44 sm:w-44"
+      />
+      <p class="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-teal-200">Coming Soon</p>
+      <h1 class="mt-3 text-5xl font-black tracking-normal text-white sm:text-6xl">New Aku App</h1>
+      <p class="mx-auto mt-5 max-w-xl text-lg leading-8 text-zinc-300">
+        A new mobile experience is in progress. Expect something focused, quick to understand, and built with the same indie care.
+      </p>
+      <form class="mx-auto mt-8 flex max-w-xl flex-col gap-3 sm:flex-row">
+        <label class="sr-only" for="email">Email address</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="you@example.com"
+          class="min-h-12 flex-1 rounded-md border border-white/10 bg-white/5 px-4 text-sm text-white outline-none transition placeholder:text-zinc-500 focus:border-teal-200"
+        />
+        <button
+          type="button"
+          class="min-h-12 rounded-md bg-white px-5 text-sm font-semibold text-zinc-950 transition hover:bg-teal-200"
+        >
+          Notify Me
+        </button>
+      </form>
+      <div class="mx-auto mt-8 rounded-lg border border-white/10 bg-white/[0.045] p-5 text-left">
+        <p class="text-sm font-medium text-white">Teaser</p>
+        <p class="mt-2 text-sm leading-6 text-zinc-400">
+          Polishing the core loop, refining the visuals, and getting the first release page ready.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,63 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { AppInfo } from "@/data/apps";
+
+interface Props {
+  app: AppInfo;
+}
+
+const { app } = Astro.props;
+---
+
+<BaseLayout title={`${app.name} Privacy Policy - Aku Apps`} description={`Privacy policy for ${app.name}.`}>
+  <section class="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-8">
+    <a class="text-sm font-medium text-teal-200 transition hover:text-white" href={`/apps/${app.slug}`}>
+      Back to {app.name}
+    </a>
+    <div class="mt-8 border-b border-white/10 pb-8">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-400">Privacy Policy</p>
+      <h1 class="mt-3 text-4xl font-black tracking-normal text-white sm:text-5xl">{app.name}</h1>
+      <p class="mt-4 text-sm text-zinc-500">Last updated: Month DD, YYYY</p>
+    </div>
+
+    <div class="mt-10 max-w-none space-y-5 text-base leading-8 text-zinc-300 [&_a]:text-teal-200 [&_a]:transition [&_a:hover]:text-white [&_h2]:pt-5 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-white">
+      <p>
+        This placeholder privacy policy explains how Aku Apps may handle information for {app.name}.
+        Replace this page with the final policy before publishing the app publicly.
+      </p>
+
+      <h2>Information We Collect</h2>
+      <p>
+        The app may collect limited information needed to provide its core functionality, such as app
+        settings, usage preferences, and basic diagnostic information. If account features, analytics,
+        ads, or cloud services are added, this section should be updated with clear details.
+      </p>
+
+      <h2>How We Use Information</h2>
+      <p>
+        Information may be used to operate the app, improve performance, understand feature usage,
+        fix bugs, and keep the experience reliable for users.
+      </p>
+
+      <h2>Third Party Services</h2>
+      <p>
+        The app may use third party services for analytics, crash reporting, app distribution, or
+        platform features. These services may process information according to their own privacy
+        policies.
+      </p>
+
+      <h2>Children's Privacy</h2>
+      <p>
+        The app is not intended to knowingly collect personal information from children. If you believe
+        a child has provided personal information, please contact Aku Apps so the information can be
+        reviewed and removed where appropriate.
+      </p>
+
+      <h2>Contact Us</h2>
+      <p>
+        For privacy questions about {app.name}, contact Aku Apps at
+        <a href="mailto:hello@akuapps.com"> hello@akuapps.com</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

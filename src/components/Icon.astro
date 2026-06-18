@@ -1,0 +1,56 @@
+---
+import type { AppFeature } from "@/data/apps";
+
+interface Props {
+  name: AppFeature["icon"];
+  class?: string;
+}
+
+const { name, class: className = "h-5 w-5" } = Astro.props;
+
+const paths: Record<AppFeature["icon"], string> = {
+  ScanLine:
+    '<path d="M4 7V5a1 1 0 0 1 1-1h2"/><path d="M17 4h2a1 1 0 0 1 1 1v2"/><path d="M20 17v2a1 1 0 0 1-1 1h-2"/><path d="M7 20H5a1 1 0 0 1-1-1v-2"/><path d="M7 12h10"/>',
+  ShieldCheck:
+    '<path d="M12 3 5 6v5c0 5 3 8 7 10 4-2 7-5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-5"/>',
+  History:
+    '<path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l3 2"/>',
+  Gamepad2:
+    '<path d="M7 9h10a4 4 0 0 1 4 4v2a3 3 0 0 1-5.4 1.8L14 15h-4l-1.6 1.8A3 3 0 0 1 3 15v-2a4 4 0 0 1 4-4Z"/><path d="M8 12v3"/><path d="M6.5 13.5h3"/><path d="M16.5 13h.01"/><path d="M18.5 15h.01"/>',
+  Zap:
+    '<path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/>',
+  Gauge:
+    '<path d="M4 14a8 8 0 1 1 16 0"/><path d="M12 14l4-4"/><path d="M5 19h14"/>',
+  Heart:
+    '<path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 21l8.8-8.3a5 5 0 0 0 0-7.1Z"/>',
+  PenLine:
+    '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/>',
+  Sparkles:
+    '<path d="m12 3 1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3Z"/><path d="m19 15 .8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15Z"/><path d="m5 14 .8 2.2L8 17l-2.2.8L5 20l-.8-2.2L2 17l2.2-.8L5 14Z"/>',
+  Droplets:
+    '<path d="M7 3s4 4.3 4 7a4 4 0 1 1-8 0c0-2.7 4-7 4-7Z"/><path d="M17 7s4 4.3 4 7a4 4 0 1 1-8 0c0-2.7 4-7 4-7Z"/>',
+  Bell:
+    '<path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z"/><path d="M10 21h4"/>',
+  BarChart3:
+    '<path d="M4 20V10"/><path d="M12 20V4"/><path d="M20 20v-7"/><path d="M3 20h18"/>',
+  Orbit:
+    '<path d="M12 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M20.2 14.2c-1.4 2.4-6.2 2.2-10.8-.5S2.4 6.9 3.8 4.5s6.2-2.2 10.8.5 7 6.8 5.6 9.2Z"/><path d="M3.8 14.2c-1.4-2.4 1.1-6.5 5.6-9.2s9.4-2.9 10.8-.5-1.1 6.5-5.6 9.2-9.4 2.9-10.8.5Z"/>',
+  Trophy:
+    '<path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M5 5H3v2a4 4 0 0 0 4 4"/><path d="M19 5h2v2a4 4 0 0 1-4 4"/>',
+  Stars:
+    '<path d="m12 2 1.1 5.1L18 9l-4.9 1.9L12 16l-1.1-5.1L6 9l4.9-1.9L12 2Z"/><path d="m19 14 .6 2.4L22 17l-2.4.6L19 20l-.6-2.4L16 17l2.4-.6L19 14Z"/><path d="m5 13 .6 2.4L8 16l-2.4.6L5 19l-.6-2.4L2 16l2.4-.6L5 13Z"/>'
+};
+---
+
+<svg
+  aria-hidden="true"
+  class={className}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="1.8"
+>
+  <Fragment set:html={paths[name]} />
+</svg>

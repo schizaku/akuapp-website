@@ -1,0 +1,11 @@
+---
+import PrivacyLayout from "@/layouts/PrivacyLayout.astro";
+import { getAppBySlug } from "@/data/apps";
+
+const app = getAppBySlug("love-cards");
+if (!app) {
+  throw new Error("Love Cards app data is missing.");
+}
+---
+
+<PrivacyLayout app={app} />
