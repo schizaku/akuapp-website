@@ -1,0 +1,196 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { apps } from "@/data/apps";
+---
+
+<BaseLayout
+  title="Testers Club - Aku Apps"
+  description="Apply to join the AkuAPPs tester group for early mobile app releases."
+>
+  <section class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-20">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-200">Testers Club</p>
+      <h1 class="mt-4 text-5xl font-black tracking-normal text-white sm:text-6xl">
+        Help shape upcoming AkuAPPs releases
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-8 text-zinc-300">
+        We invite a small group of testers before public launches. Selected applicants are added to our Gmail tester group and may receive early builds, test notes, and feedback requests.
+      </p>
+      <div class="mt-8 grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+        <div class="rounded-lg border border-white/10 bg-white/[0.045] p-5">
+          <p class="text-sm font-semibold text-white">Early access</p>
+          <p class="mt-2 text-sm leading-6 text-zinc-400">Try selected apps before they go live on stores.</p>
+        </div>
+        <div class="rounded-lg border border-white/10 bg-white/[0.045] p-5">
+          <p class="text-sm font-semibold text-white">Useful feedback</p>
+          <p class="mt-2 text-sm leading-6 text-zinc-400">Report issues, rough edges, and moments that feel unclear.</p>
+        </div>
+        <div class="rounded-lg border border-white/10 bg-white/[0.045] p-5">
+          <p class="text-sm font-semibold text-white">Manual selection</p>
+          <p class="mt-2 text-sm leading-6 text-zinc-400">We review applications and invite testers who fit the current test round.</p>
+        </div>
+      </div>
+    </div>
+
+    <form id="tester-form" class="rounded-lg border border-white/10 bg-white/[0.045] p-5 shadow-2xl shadow-black/25 sm:p-6">
+      <div class="grid gap-5">
+        <div class="grid gap-2">
+          <label class="text-sm font-medium text-white" for="fullName">Full name</label>
+          <input
+            id="fullName"
+            name="fullName"
+            required
+            class="min-h-12 rounded-md border border-white/10 bg-zinc-950/60 px-4 text-sm text-white outline-none transition placeholder:text-zinc-500 focus:border-teal-200"
+            placeholder="Your name"
+          />
+        </div>
+
+        <div class="grid gap-2">
+          <label class="text-sm font-medium text-white" for="email">Gmail address</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
+            class="min-h-12 rounded-md border border-white/10 bg-zinc-950/60 px-4 text-sm text-white outline-none transition placeholder:text-zinc-500 focus:border-teal-200"
+            placeholder="name@gmail.com"
+          />
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div class="grid gap-2">
+            <label class="text-sm font-medium text-white" for="platform">Main platform</label>
+            <select
+              id="platform"
+              name="platform"
+              required
+              class="min-h-12 rounded-md border border-white/10 bg-zinc-950/60 px-4 text-sm text-white outline-none transition focus:border-teal-200"
+            >
+              <option value="">Select platform</option>
+              <option>Android</option>
+              <option>iOS</option>
+              <option>Both</option>
+            </select>
+          </div>
+
+          <div class="grid gap-2">
+            <label class="text-sm font-medium text-white" for="device">Device model</label>
+            <input
+              id="device"
+              name="device"
+              required
+              class="min-h-12 rounded-md border border-white/10 bg-zinc-950/60 px-4 text-sm text-white outline-none transition placeholder:text-zinc-500 focus:border-teal-200"
+              placeholder="iPhone 15, Pixel 8..."
+            />
+          </div>
+        </div>
+
+        <fieldset class="grid gap-3">
+          <legend class="text-sm font-medium text-white">Apps you want to test</legend>
+          <div class="grid gap-2 sm:grid-cols-2">
+            {apps.map((app) => (
+              <label class="flex min-h-11 items-center gap-3 rounded-md border border-white/10 bg-zinc-950/42 px-3 text-sm text-zinc-300">
+                <input
+                  type="checkbox"
+                  name="apps"
+                  value={app.name}
+                  class="h-4 w-4 rounded border-white/20 bg-zinc-950 text-teal-300"
+                />
+                <span>{app.name}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <div class="grid gap-2">
+          <label class="text-sm font-medium text-white" for="experience">Testing experience</label>
+          <select
+            id="experience"
+            name="experience"
+            required
+            class="min-h-12 rounded-md border border-white/10 bg-zinc-950/60 px-4 text-sm text-white outline-none transition focus:border-teal-200"
+          >
+            <option value="">Select one</option>
+            <option>First-time tester</option>
+            <option>I have tested apps before</option>
+            <option>I regularly test beta apps</option>
+            <option>I work in product, QA, or software</option>
+          </select>
+        </div>
+
+        <div class="grid gap-2">
+          <label class="text-sm font-medium text-white" for="motivation">Why would you be a good tester?</label>
+          <textarea
+            id="motivation"
+            name="motivation"
+            required
+            rows="5"
+            class="rounded-md border border-white/10 bg-zinc-950/60 px-4 py-3 text-sm leading-6 text-white outline-none transition placeholder:text-zinc-500 focus:border-teal-200"
+            placeholder="Tell us what you like testing, which apps interest you, and what kind of feedback you can share."
+          ></textarea>
+        </div>
+
+        <label class="flex items-start gap-3 rounded-md border border-white/10 bg-zinc-950/42 p-3 text-sm leading-6 text-zinc-300">
+          <input
+            id="consent"
+            name="consent"
+            type="checkbox"
+            required
+            class="mt-1 h-4 w-4 rounded border-white/20 bg-zinc-950 text-teal-300"
+          />
+          <span>I agree to be contacted by AkuAPPs about tester opportunities and understand that tester access is reviewed manually.</span>
+        </label>
+
+        <button
+          type="submit"
+          class="min-h-12 rounded-md bg-white px-5 text-sm font-semibold text-zinc-950 transition hover:bg-teal-200"
+        >
+          Apply to Testers Club
+        </button>
+        <p id="form-status" class="hidden text-sm leading-6 text-teal-200"></p>
+      </div>
+    </form>
+  </section>
+
+  <script>
+    const form = document.querySelector("#tester-form");
+    const status = document.querySelector("#form-status");
+
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (!(form instanceof HTMLFormElement) || !form.reportValidity()) {
+        return;
+      }
+
+      const data = new FormData(form);
+      const selectedApps = data.getAll("apps").join(", ") || "No specific app selected";
+      const body = [
+        "New AkuAPPs Testers Club application",
+        "",
+        `Full name: ${data.get("fullName")}`,
+        `Gmail address: ${data.get("email")}`,
+        `Main platform: ${data.get("platform")}`,
+        `Device model: ${data.get("device")}`,
+        `Apps to test: ${selectedApps}`,
+        `Testing experience: ${data.get("experience")}`,
+        "",
+        "Motivation:",
+        String(data.get("motivation") || ""),
+        "",
+        "Consent: Applicant agreed to be contacted about tester opportunities."
+      ].join("\n");
+
+      const subject = `Testers Club Application - ${data.get("fullName")}`;
+      const mailto = `mailto:hello@akuapps.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      if (status instanceof HTMLElement) {
+        status.textContent = "Opening your email app with the application details.";
+        status.classList.remove("hidden");
+      }
+
+      window.location.href = mailto;
+    });
+  </script>
+</BaseLayout>
