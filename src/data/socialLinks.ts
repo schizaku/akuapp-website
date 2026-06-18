@@ -9,9 +9,9 @@ export type StoreProfileLink = {
 };
 
 export const socialLinks: SocialLink[] = [
-  { label: "YouTube", href: "#" },
-  { label: "TikTok", href: "#" },
-  { label: "Instagram", href: "#" }
+  { label: "YouTube", href: "https://www.youtube.com/@Aku-APPs" },
+  { label: "TikTok", href: "https://www.tiktok.com/@aku.apps" },
+  { label: "Instagram", href: "https://www.instagram.com/aku.apps" }
 ];
 
 export const storeProfileLinks: StoreProfileLink[] = [
