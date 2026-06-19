@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://akuapps.com/sitemap-index.xml

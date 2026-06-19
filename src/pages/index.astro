@@ -2,9 +2,39 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import AppCard from "@/components/AppCard.astro";
 import { apps } from "@/data/apps";
+
+const homeSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "AkuAPPs",
+    url: "https://akuapps.com/",
+    logo: "https://akuapps.com/assets/brand/akuapps-logo.jpeg",
+    sameAs: [
+      "https://www.youtube.com/@Aku-APPs",
+      "https://www.tiktok.com/@aku.apps",
+      "https://www.instagram.com/aku.apps",
+      "https://apps.apple.com/tr/developer/aykut-yilmaz/id1867122375",
+      "https://play.google.com/store/apps/developer?id=Aku+APPs&hl=tr"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "AkuAPPs",
+    url: "https://akuapps.com/",
+    description:
+      "Independent mobile apps, utilities, lifestyle tools, and compact mobile games from AkuAPPs."
+  }
+];
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="AkuAPPs - Mobile Apps, Games, Utilities and Lifestyle Tools"
+  description="Discover AkuAPPs mobile apps including Secure QR Scanner, Driftombie, Love Cards, Drinkly, and Cosmic Energy."
+  image="/assets/brand/akuapps-logo.jpeg"
+  schema={homeSchema}
+>
   <section class="mx-auto grid max-w-6xl gap-10 px-4 pb-14 pt-14 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pb-20 lg:pt-20">
     <div class="flex flex-col justify-center">
       <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-200">AkuAPPs</p>

@@ -17,9 +17,36 @@ const pageNavItems = [
   { label: "Features", href: "#features" },
   { label: "Description", href: "#description" }
 ];
+
+const appSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: app.name,
+  applicationCategory: app.category === "Game" ? "GameApplication" : "MobileApplication",
+  operatingSystem: "iOS, Android",
+  description: app.shortDescription,
+  image: new URL(app.icon, Astro.site).toString(),
+  screenshot: app.screenshots.map((screenshot) => new URL(screenshot, Astro.site).toString()),
+  publisher: {
+    "@type": "Organization",
+    name: "AkuAPPs",
+    url: new URL("/", Astro.site).toString(),
+    logo: new URL("/assets/brand/akuapps-logo.jpeg", Astro.site).toString()
+  },
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD"
+  }
+};
 ---
 
-<BaseLayout title={`${app.name} - Aku Apps`} description={app.shortDescription}>
+<BaseLayout
+  title={`${app.name} - AkuAPPs`}
+  description={app.shortDescription}
+  image={app.featureGraphic ?? app.icon}
+  schema={appSchema}
+>
   <section class="mx-auto max-w-6xl px-4 pb-16 pt-10 sm:px-6 lg:px-8 lg:pb-20 lg:pt-14">
     <div class="overflow-hidden rounded-lg border border-white/10 bg-white/[0.045] shadow-2xl shadow-black/30">
       <div class={`h-2 bg-gradient-to-r ${app.accent}`}></div>

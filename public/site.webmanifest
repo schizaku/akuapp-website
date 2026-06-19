@@ -1,0 +1,16 @@
+{
+  "name": "AkuAPPs",
+  "short_name": "AkuAPPs",
+  "description": "Independent mobile apps, utilities, lifestyle tools, and compact games.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "icons": [
+    {
+      "src": "/assets/brand/akuapps-logo.jpeg",
+      "sizes": "1024x1024",
+      "type": "image/jpeg"
+    }
+  ]
+}

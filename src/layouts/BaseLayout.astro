@@ -7,12 +7,22 @@ import SocialDock from "@/components/SocialDock.astro";
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  ogType?: "website" | "article";
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
   title = "AkuAPPs - Independent Mobile Apps",
-  description = "AkuAPPs is an independent mobile app portfolio with utilities, lifestyle apps, and small mobile games."
+  description = "AkuAPPs is an independent mobile app portfolio with utilities, lifestyle apps, and small mobile games.",
+  image = "/assets/brand/akuapps-logo.jpeg",
+  ogType = "website",
+  schema
 } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const imageUrl = new URL(image, Astro.site).toString();
+const schemaJson = schema ? JSON.stringify(schema) : undefined;
 ---
 
 <!doctype html>
@@ -22,7 +32,23 @@ const {
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#09090b" />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href="/assets/brand/akuapps-logo.jpeg" />
+    <link rel="apple-touch-icon" href="/assets/brand/akuapps-logo.jpeg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:site_name" content="AkuAPPs" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    {schemaJson && <script is:inline type="application/ld+json" set:html={schemaJson} />}
     <title>{title}</title>
   </head>
   <body class="bg-zinc-950 text-zinc-100 antialiased">
