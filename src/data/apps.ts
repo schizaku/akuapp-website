@@ -214,39 +214,55 @@ export const apps: AppInfo[] = [
   },
   {
     slug: "drinkly",
-    name: "Drinkly",
+    name: "Drinkly: Water Tracker & Reminder",
     category: "Lifestyle",
-    tagline: "A lighter way to remember water.",
+    tagline: "Hydrate, grow, and thrive.",
     shortDescription:
-      "Track hydration with friendly reminders, simple goals, and a calm daily view.",
+      "Stay hydrated, stay healthy, and make water drinking fun with Drinkly.",
     description: [
-      "Drinkly keeps hydration tracking practical. Set a daily target, log drinks quickly, and see your progress without digging through complicated charts.",
-      "It is designed around gentle nudges instead of pressure, making it easier to build a small habit that fits real life.",
-      "The app works best as a quiet companion for people who want a simple daily rhythm."
+      "Proper hydration is key to a healthier life, but remembering to drink enough water can be a challenge. Drinkly turns your daily hydration habit into a clear, rewarding journey.",
+      "Enter your height, weight, gender, and daily activity level to get a personalized daily water goal based on scientific formulas. Track your daily, weekly, and monthly progress with clean statistics, switch between ml and fl oz, and sync your progress with a Google account.",
+      "Premium features make hydration more playful with weather-adaptive goals, a digital garden that grows as you log water, and cute virtual pets that stay happy when you keep up with your goals."
     ],
-    icon: placeholder("512x512", "2563eb", "DR"),
+    icon: "/assets/apps/drinkly/logo.png",
+    featureGraphic: "/assets/apps/drinkly/feature-graphic.png",
     screenshots: [
-      placeholder("450x800", "2563eb", "Today"),
-      placeholder("450x800", "1d4ed8", "Log"),
-      placeholder("450x800", "0f766e", "Goals"),
-      placeholder("450x800", "334155", "Stats")
+      "/assets/apps/drinkly/screen-1.jpeg",
+      "/assets/apps/drinkly/screen-2.jpeg",
+      "/assets/apps/drinkly/screen-3.jpeg",
+      "/assets/apps/drinkly/screen-4.jpeg"
     ],
-    accent: "from-blue-400 via-teal-300 to-slate-200",
+    accent: "from-sky-400 via-cyan-300 to-blue-500",
     features: [
       {
         icon: "Droplets",
-        title: "Fast logging",
-        description: "Add common drink amounts with a tap and keep moving."
-      },
-      {
-        icon: "Bell",
-        title: "Gentle reminders",
-        description: "Use light prompts that help without feeling demanding."
+        title: "Personalized goals",
+        description: "Calculate a daily water target from height, weight, gender, and activity level."
       },
       {
         icon: "BarChart3",
-        title: "Daily progress",
-        description: "See where you stand today and build a steady habit over time."
+        title: "Smart analytics",
+        description: "Review daily, weekly, and monthly hydration history with clean charts."
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Cloud sync",
+        description: "Connect your Google account to back up data and sync across devices."
+      },
+      {
+        icon: "Sparkles",
+        title: "Garden game",
+        description: "Grow beautiful virtual flowers by logging water and caring for your habit."
+      },
+      {
+        icon: "Heart",
+        title: "Virtual pets",
+        description: "Keep cute digital pets happy and healthy by staying on top of hydration."
+      },
+      {
+        icon: "Bell",
+        title: "Weather goals",
+        description: "Premium recommendations can adapt your target based on local weather."
       }
     ],
     appStore: { label: "App Store", href: "#" },
