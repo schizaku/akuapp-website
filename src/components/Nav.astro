@@ -1,8 +1,9 @@
 ---
+import LanguageSelector from "@/components/LanguageSelector.astro";
+
 const links = [
   { label: "Apps", href: "/apps" },
-  { label: "Testers Club", href: "/testers-club" },
-  { label: "Contact", href: "mailto:hello@akuapps.com" }
+  { label: "Testers Club", href: "/testers-club" }
 ];
 ---
 
@@ -25,6 +26,13 @@ const links = [
           {link.label}
         </a>
       ))}
+      <LanguageSelector />
+      <a
+        href="mailto:hello@akuapps.com"
+        class="rounded-md px-2 py-2 text-sm font-medium text-zinc-300 transition hover:bg-white/10 hover:text-white sm:px-3"
+      >
+        Contact
+      </a>
     </div>
   </nav>
 </header>
