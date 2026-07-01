@@ -97,8 +97,14 @@ export const apps: AppInfo[] = [
         description: "Use the app in English, Turkish, Spanish, French, German, and more."
       }
     ],
-    appStore: { label: "App Store", href: "#" },
-    googlePlay: { label: "Google Play", href: "#" }
+    appStore: {
+      label: "App Store",
+      href: "https://apps.apple.com/tr/app/secure-qr-scanner-safe-qr/id6757461361"
+    },
+    googlePlay: {
+      label: "Google Play",
+      href: "https://play.google.com/store/apps/details?id=com.safetyqrscanner.app"
+    }
   },
   {
     slug: "driftombie",
