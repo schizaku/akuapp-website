@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://akuapps.com/sitemap-index.xml
+Sitemap: https://akuapps.com/important-pages-sitemap.xml
