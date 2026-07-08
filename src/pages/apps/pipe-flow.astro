@@ -1,0 +1,11 @@
+---
+import AppDetailLayout from "@/layouts/AppDetailLayout.astro";
+import { getAppBySlug } from "@/data/apps";
+
+const app = getAppBySlug("pipe-flow");
+if (!app) {
+  throw new Error("Pipe Flow app data is missing.");
+}
+---
+
+<AppDetailLayout app={app} />

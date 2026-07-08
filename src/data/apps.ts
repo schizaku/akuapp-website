@@ -313,6 +313,62 @@ export const apps: AppInfo[] = [
     ],
     appStore: { label: "App Store", href: "#" },
     googlePlay: { label: "Google Play", href: "#" }
+  },
+  {
+    slug: "pipe-flow",
+    name: "Pipe Flow - High IQ Speed Run",
+    category: "Game",
+    tagline: "Connect every color. Beat the clock.",
+    shortDescription:
+      "A neon pipe puzzle speed run game with timed levels, smart routes, and beta difficulty feedback.",
+    description: [
+      "Pipe Flow - High IQ Speed Run is a fast mobile puzzle game about connecting matching colored endpoints across a clean neon board. Every level is a route-planning challenge: read the grid, draw clean paths, fill the board, and keep the timer under control.",
+      "The game is currently preparing for closed beta. Beta players can rate level difficulty and report confusing, broken, or performance-heavy levels directly from the app, helping improve level order and puzzle balance before public release.",
+      "Pipe Flow is built for quick sessions, readable gameplay, and a satisfying speed run loop with stars, timers, move counts, and escalating puzzle complexity."
+    ],
+    icon: "/assets/apps/pipe-flow/logo.png",
+    featureGraphic: "/assets/apps/pipe-flow/feature-graphic.png",
+    screenshots: [
+      "/assets/apps/pipe-flow/screen-1.png",
+      "/assets/apps/pipe-flow/screen-2.png",
+      "/assets/apps/pipe-flow/screen-3.png",
+      "/assets/apps/pipe-flow/screen-4.png"
+    ],
+    accent: "from-cyan-300 via-fuchsia-400 to-lime-300",
+    features: [
+      {
+        icon: "Gamepad2",
+        title: "Pipe puzzle routing",
+        description: "Connect matching colors and complete every route without breaking the board."
+      },
+      {
+        icon: "Gauge",
+        title: "Speed run timer",
+        description: "Track level time, total time, moves, and board coverage as you play."
+      },
+      {
+        icon: "Trophy",
+        title: "Stars and mastery",
+        description: "Clear levels, improve your run, and chase better results through each sector."
+      },
+      {
+        icon: "Sparkles",
+        title: "Neon game feel",
+        description: "Enjoy glowing endpoints, animated flow, clean feedback, and punchy completion moments."
+      },
+      {
+        icon: "BarChart3",
+        title: "Difficulty feedback",
+        description: "Closed beta players can rate level difficulty to improve future level ordering."
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Beta issue reports",
+        description: "Report impossible levels, alternate solutions, performance issues, and UI bugs from inside the app."
+      }
+    ],
+    appStore: { label: "Coming Soon", href: "#" },
+    googlePlay: { label: "Closed Beta Soon", href: "#" }
   }
 ];
 
