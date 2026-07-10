@@ -215,8 +215,8 @@ export const apps: AppInfo[] = [
         description: "Unlock unlimited questions and enjoy an ad-free experience."
       }
     ],
-    appStore: { label: "App Store", href: "#" },
-    googlePlay: { label: "Google Play", href: "#" }
+    appStore: { label: "App Store", href: "https://apps.apple.com/us/app/love-cards-couple-questions/id6778553881" },
+    googlePlay: { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.akuapps.lovecards" }
   },
   {
     slug: "drinkly",
