@@ -216,7 +216,7 @@ export const apps: AppInfo[] = [
       }
     ],
     appStore: { label: "App Store", href: "https://apps.apple.com/us/app/love-cards-couple-questions/id6778553881" },
-    googlePlay: { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.akuapps.lovecards" }
+    googlePlay: { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.akuapps.lovecards&hl=en" }
   },
   {
     slug: "drinkly",

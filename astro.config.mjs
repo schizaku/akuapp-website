@@ -5,6 +5,9 @@ export default defineConfig({
   site: "https://akuapps.com",
   integrations: [
     sitemap({
+      filter(page) {
+        return !new URL(page).pathname.startsWith("/go/");
+      },
       serialize(item) {
         const pathname = new URL(item.url).pathname;
 
