@@ -1,5 +1,6 @@
 ---
 import "../../styles/global.css";
+import GoogleTag from "@/components/GoogleTag.astro";
 import { getAppBySlug } from "@/data/apps";
 
 const app = getAppBySlug("love-cards");
@@ -17,6 +18,7 @@ const imageUrl = new URL(app.icon, Astro.site).toString();
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
+    <GoogleTag />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="theme-color" content="#09090b" />
@@ -60,9 +62,41 @@ const imageUrl = new URL(app.icon, Astro.site).toString();
         const isIOS =
           /iphone|ipad|ipod/i.test(userAgent) ||
           (/mac/i.test(platform) && maxTouchPoints > 1);
+        const platformName = isIOS ? "ios" : "android";
+        const targetStore = isIOS ? "app_store" : "google_play";
         const targetUrl = isIOS ? appStoreUrl : googlePlayUrl;
+        const searchParams = new URLSearchParams(window.location.search);
+        let didRedirect = false;
 
-        window.location.replace(targetUrl);
+        const redirect = () => {
+          if (didRedirect) {
+            return;
+          }
+
+          didRedirect = true;
+          window.location.replace(targetUrl);
+        };
+
+        window.setTimeout(redirect, 450);
+
+        if (typeof window.gtag === "function") {
+          window.gtag("event", "love_cards_store_redirect", {
+            app_name: "love_cards",
+            platform: platformName,
+            target_store: targetStore,
+            utm_source: searchParams.get("utm_source") || "",
+            utm_medium: searchParams.get("utm_medium") || "",
+            utm_campaign: searchParams.get("utm_campaign") || "",
+            page_referrer: document.referrer || "",
+            transport_type: "beacon",
+            event_callback: redirect,
+            event_timeout: 350
+          });
+
+          return;
+        }
+
+        redirect();
       })();
     </script>
   </body>
