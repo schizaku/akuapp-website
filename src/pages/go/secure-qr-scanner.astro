@@ -1,0 +1,103 @@
+---
+import "../../styles/global.css";
+import GoogleTag from "@/components/GoogleTag.astro";
+import { getAppBySlug } from "@/data/apps";
+
+const app = getAppBySlug("secure-qr-scanner");
+if (!app) {
+  throw new Error("Secure QR Scanner app data is missing.");
+}
+
+const appStoreUrl = app.appStore.href;
+const googlePlayUrl = app.googlePlay.href;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const imageUrl = new URL(app.icon, Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <GoogleTag />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#09090b" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" href="/assets/brand/akuapps-logo.jpeg" />
+    <meta property="og:site_name" content="AkuAPPs" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${app.name} - Download`} />
+    <meta property="og:description" content={app.shortDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={`${app.name} - Download`} />
+    <meta name="twitter:description" content={app.shortDescription} />
+    <meta name="twitter:image" content={imageUrl} />
+    <title>{app.name} - Download</title>
+  </head>
+  <body class="bg-zinc-950 text-zinc-100 antialiased">
+    <main class="grid min-h-screen place-items-center px-4 py-10">
+      <section class="w-full max-w-md rounded-lg border border-white/10 bg-zinc-950/90 p-6 text-center shadow-2xl shadow-black/30 sm:p-8">
+        <img
+          src={app.icon}
+          alt={`${app.name} app icon`}
+          class="mx-auto h-24 w-24 rounded-2xl border border-white/10 object-cover shadow-glow"
+        />
+        <p class="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-cyan-200">Secure QR Scanner</p>
+        <h1 class="mt-3 text-3xl font-black tracking-normal text-white">Opening the right store</h1>
+        <p class="mx-auto mt-4 max-w-sm text-sm leading-6 text-zinc-300">
+          Redirecting to your download page...
+        </p>
+      </section>
+    </main>
+
+    <script is:inline define:vars={{ appStoreUrl, googlePlayUrl }}>
+      (() => {
+        const userAgent = navigator.userAgent || "";
+        const userAgentData = Reflect.get(navigator, "userAgentData") || {};
+        const platform = userAgentData.platform || Reflect.get(navigator, "platform") || "";
+        const maxTouchPoints = navigator.maxTouchPoints || 0;
+
+        const isIOS =
+          /iphone|ipad|ipod/i.test(userAgent) ||
+          (/mac/i.test(platform) && maxTouchPoints > 1);
+        const platformName = isIOS ? "ios" : "android";
+        const targetStore = isIOS ? "app_store" : "google_play";
+        const targetUrl = isIOS ? appStoreUrl : googlePlayUrl;
+        const searchParams = new URLSearchParams(window.location.search);
+        let didRedirect = false;
+
+        const redirect = () => {
+          if (didRedirect) {
+            return;
+          }
+
+          didRedirect = true;
+          window.location.replace(targetUrl);
+        };
+
+        window.setTimeout(redirect, 450);
+
+        if (typeof window.gtag === "function") {
+          window.gtag("event", "secure_qr_store_redirect", {
+            app_name: "secure_qr_scanner",
+            platform: platformName,
+            target_store: targetStore,
+            utm_source: searchParams.get("utm_source") || "",
+            utm_medium: searchParams.get("utm_medium") || "",
+            utm_campaign: searchParams.get("utm_campaign") || "",
+            page_referrer: document.referrer || "",
+            transport_type: "beacon",
+            event_callback: redirect,
+            event_timeout: 350
+          });
+
+          return;
+        }
+
+        redirect();
+      })();
+    </script>
+  </body>
+</html>

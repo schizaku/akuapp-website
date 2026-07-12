@@ -99,11 +99,11 @@ export const apps: AppInfo[] = [
     ],
     appStore: {
       label: "App Store",
-      href: "https://apps.apple.com/tr/app/secure-qr-scanner-safe-qr/id6757461361"
+      href: "https://apps.apple.com/us/app/secure-qr-scanner-safe-qr/id6757461361"
     },
     googlePlay: {
       label: "Google Play",
-      href: "https://play.google.com/store/apps/details?id=com.safetyqrscanner.app"
+      href: "https://play.google.com/store/apps/details?id=com.safetyqrscanner.app&hl=en"
     }
   },
   {
