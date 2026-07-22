@@ -190,10 +190,13 @@ export const apps: AppInfo[] = [
       },
       {
         question: "Where can I download Driftombie?",
-        answer: "Driftombie is available from Aku APPs on Google Play. The official iOS link will be added here when its App Store listing is publicly available."
+        answer: "Driftombie is available from Aku APPs on both the Apple App Store and Google Play."
       }
     ],
-    appStore: { label: "App Store", href: "#" },
+    appStore: {
+      label: "App Store",
+      href: "https://apps.apple.com/us/app/driftombie/id6777925931"
+    },
     googlePlay: {
       label: "Google Play",
       href: "https://play.google.com/store/apps/details?id=com.akuapps.driftombie"
