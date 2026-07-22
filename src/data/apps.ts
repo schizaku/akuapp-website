@@ -342,11 +342,14 @@ export const apps: AppInfo[] = [
       },
       {
         question: "Where can I download Drinkly?",
-        answer: "Official AkuAPPs store links will appear on this page when the iOS and Android listings are publicly available."
+        answer: "Drinkly is available from Aku APPs on Google Play. The iOS version has not been released yet."
       }
     ],
     appStore: { label: "App Store", href: "#" },
-    googlePlay: { label: "Google Play", href: "#" }
+    googlePlay: {
+      label: "Google Play",
+      href: "https://play.google.com/store/apps/details?id=com.akuapps.drinkly"
+    }
   },
   {
     slug: "cosmic-energy",
