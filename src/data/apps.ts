@@ -24,6 +24,11 @@ export type AppFeature = {
   description: string;
 };
 
+export type AppFaq = {
+  question: string;
+  answer: string;
+};
+
 export type AppInfo = {
   slug: string;
   name: string;
@@ -36,6 +41,7 @@ export type AppInfo = {
   screenshots: string[];
   accent: string;
   features: AppFeature[];
+  faqs: AppFaq[];
   appStore: StoreLink;
   googlePlay: StoreLink;
 };
@@ -95,6 +101,20 @@ export const apps: AppInfo[] = [
         icon: "Bell",
         title: "10 languages",
         description: "Use the app in English, Turkish, Spanish, French, German, and more."
+      }
+    ],
+    faqs: [
+      {
+        question: "What does Secure QR Scanner check?",
+        answer: "It scans QR codes and reviews web links for signals such as unencrypted connections, unusual domains, shortened URLs, tracking parameters, and common phishing patterns before you open them."
+      },
+      {
+        question: "Can Secure QR Scanner work offline?",
+        answer: "Yes. Core QR scanning and common result handling work on your device, while checks that depend on online services require an internet connection."
+      },
+      {
+        question: "Is Secure QR Scanner available on iOS and Android?",
+        answer: "Yes. Secure QR Scanner is available on both the Apple App Store and Google Play."
       }
     ],
     appStore: {
@@ -159,8 +179,25 @@ export const apps: AppInfo[] = [
         description: "Collect hearts, wrenches, and coins while avoiding dangerous bombs."
       }
     ],
+    faqs: [
+      {
+        question: "What kind of game is Driftombie?",
+        answer: "Driftombie is an arcade survival driving game where you drift an armored car through zombie-filled streets, collect pickups, and build score combos."
+      },
+      {
+        question: "How do terrain and maps affect gameplay?",
+        answer: "Asphalt, sand, ice, and snow change grip and slide behavior, so each map asks for a different drifting approach."
+      },
+      {
+        question: "Where can I download Driftombie?",
+        answer: "Driftombie is available from Aku APPs on Google Play. The official iOS link will be added here when its App Store listing is publicly available."
+      }
+    ],
     appStore: { label: "App Store", href: "#" },
-    googlePlay: { label: "Google Play", href: "#" }
+    googlePlay: {
+      label: "Google Play",
+      href: "https://play.google.com/store/apps/details?id=com.akuapps.driftombie"
+    }
   },
   {
     slug: "love-cards",
@@ -213,6 +250,20 @@ export const apps: AppInfo[] = [
         icon: "Zap",
         title: "Premium upgrade",
         description: "Unlock unlimited questions and enjoy an ad-free experience."
+      }
+    ],
+    faqs: [
+      {
+        question: "What is Love Cards: Couple Questions?",
+        answer: "Love Cards is a conversation card app with romantic, playful, emotional, and thoughtful prompts designed to help couples connect."
+      },
+      {
+        question: "Can couples use Love Cards together from different places?",
+        answer: "Yes. Couple Room lets partners join a private room, draw cards, write answers, and respond to each other."
+      },
+      {
+        question: "Is Love Cards available on iOS and Android?",
+        answer: "Yes. Love Cards: Couple Questions is available on both the Apple App Store and Google Play."
       }
     ],
     appStore: {
@@ -277,6 +328,20 @@ export const apps: AppInfo[] = [
         description: "Premium recommendations can adapt your target based on local weather."
       }
     ],
+    faqs: [
+      {
+        question: "How does Drinkly calculate a water goal?",
+        answer: "Drinkly uses details such as height, weight, gender, and activity level to suggest a personalized daily hydration target."
+      },
+      {
+        question: "What can I track in Drinkly?",
+        answer: "You can log water intake and review daily, weekly, and monthly hydration progress in milliliters or fluid ounces."
+      },
+      {
+        question: "Where can I download Drinkly?",
+        answer: "Official AkuAPPs store links will appear on this page when the iOS and Android listings are publicly available."
+      }
+    ],
     appStore: { label: "App Store", href: "#" },
     googlePlay: { label: "Google Play", href: "#" }
   },
@@ -286,11 +351,11 @@ export const apps: AppInfo[] = [
     category: "Game",
     tagline: "Tap into a neon space challenge.",
     shortDescription:
-      "A compact mobile game built around cosmic reactions, timing, and score chasing.",
+      "A neon arcade game built around quick reactions, precise timing, and repeatable score-chasing runs.",
     description: [
-      "Cosmic Energy is a bright arcade experience about timing, reactions, and chasing a cleaner run through space-inspired challenges.",
-      "The game keeps the rules readable and the pace lively, so every attempt feels like a fresh shot at better flow.",
-      "It is made for short sessions, glowing visuals, and that satisfying feeling when your timing finally clicks."
+      "Cosmic Energy is a fast neon arcade game focused on timing, reactions, and improving one run at a time. Space-inspired patterns shift as you play, asking you to read the action quickly and stay in rhythm.",
+      "Each attempt is designed to be easy to understand and satisfying to replay. Quick restarts keep the focus on learning patterns, sharpening timing, and pushing beyond your previous score without a long setup.",
+      "Cosmic Energy is made for short mobile sessions and players who enjoy responsive score-chasing games. Its glowing visual language keeps hazards, targets, and progress readable while the pace builds around you."
     ],
     icon: placeholder("512x512", "6d28d9", "CE"),
     screenshots: [
@@ -315,6 +380,35 @@ export const apps: AppInfo[] = [
         icon: "Stars",
         title: "Neon feel",
         description: "A compact visual style with space energy and arcade clarity."
+      },
+      {
+        icon: "Zap",
+        title: "Quick restarts",
+        description: "Jump back into the action quickly and turn every attempt into useful practice."
+      },
+      {
+        icon: "Gauge",
+        title: "Reaction challenge",
+        description: "Read changing patterns, make precise moves, and stay composed as the pace rises."
+      },
+      {
+        icon: "Gamepad2",
+        title: "Short sessions",
+        description: "Play focused mobile runs whenever you have a few minutes to chase a better score."
+      }
+    ],
+    faqs: [
+      {
+        question: "What kind of game is Cosmic Energy?",
+        answer: "Cosmic Energy is a neon arcade score-chasing game built around quick reactions, pattern reading, and precise timing."
+      },
+      {
+        question: "Is Cosmic Energy suitable for short sessions?",
+        answer: "Yes. Runs and restarts are designed for quick mobile play while still rewarding practice and score improvement."
+      },
+      {
+        question: "Where can I download Cosmic Energy?",
+        answer: "Official iOS and Android download links will be added when the AkuAPPs store listings are publicly available."
       }
     ],
     appStore: { label: "App Store", href: "#" },
@@ -371,6 +465,20 @@ export const apps: AppInfo[] = [
         icon: "ShieldCheck",
         title: "Beta issue reports",
         description: "Report impossible levels, alternate solutions, performance issues, and UI bugs from inside the app."
+      }
+    ],
+    faqs: [
+      {
+        question: "What is Pipe Flow - High IQ Speed Run?",
+        answer: "Pipe Flow is a timed neon puzzle game where you connect matching colored endpoints, fill the board, and optimize your route."
+      },
+      {
+        question: "What can closed beta testers report?",
+        answer: "Testers can rate level difficulty and report impossible solutions, performance problems, confusing layouts, and interface issues from inside the app."
+      },
+      {
+        question: "When will Pipe Flow be available?",
+        answer: "Pipe Flow is preparing for closed beta. Public store links will be published here when they become available."
       }
     ],
     appStore: { label: "Coming Soon", href: "#" },

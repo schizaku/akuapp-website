@@ -15,8 +15,11 @@ const { app } = Astro.props;
 const pageNavItems = [
   { label: "Screenshots", href: "#screenshots" },
   { label: "Features", href: "#features" },
-  { label: "Description", href: "#description" }
+  { label: "Description", href: "#description" },
+  { label: "FAQ", href: "#faq" }
 ];
+
+const storeUrls = [app.appStore.href, app.googlePlay.href].filter((href) => href !== "#");
 
 const appSchema = {
   "@context": "https://schema.org",
@@ -37,7 +40,21 @@ const appSchema = {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD"
-  }
+  },
+  ...(storeUrls.length > 0 ? { sameAs: storeUrls } : {})
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: app.faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer
+    }
+  }))
 };
 ---
 
@@ -45,7 +62,7 @@ const appSchema = {
   title={`${app.name} - AkuAPPs`}
   description={app.shortDescription}
   image={app.featureGraphic ?? app.icon}
-  schema={appSchema}
+  schema={[appSchema, faqSchema]}
 >
   <section class="mx-auto max-w-6xl px-4 pb-16 pt-10 sm:px-6 lg:px-8 lg:pb-20 lg:pt-14">
     <div class="overflow-hidden rounded-lg border border-white/10 bg-white/[0.045] shadow-2xl shadow-black/30">
@@ -61,7 +78,7 @@ const appSchema = {
         <div class={`grid aspect-[1024/500] place-items-center bg-gradient-to-br ${app.accent} p-8`}>
           <img
             src={app.icon}
-            alt={`${app.name} app icon placeholder`}
+            alt={`${app.name} app icon`}
             class="h-28 w-28 rounded-2xl border border-white/30 object-cover shadow-2xl shadow-black/25 sm:h-36 sm:w-36"
           />
         </div>
@@ -71,7 +88,7 @@ const appSchema = {
         <div class="flex min-w-0 items-center gap-4 sm:gap-5">
           <img
             src={app.icon}
-            alt={`${app.name} app icon placeholder`}
+            alt={`${app.name} app icon`}
             class="h-20 w-20 shrink-0 rounded-2xl border border-white/10 object-cover shadow-glow sm:h-24 sm:w-24"
           />
           <div class="min-w-0">
@@ -125,5 +142,20 @@ const appSchema = {
     <a class="mt-10 inline-flex text-sm font-medium text-zinc-400 transition hover:text-white" href={`/privacy/${app.slug}`}>
       Read privacy policy
     </a>
+  </section>
+
+  <section id="faq" class="mx-auto max-w-3xl scroll-mt-32 px-4 py-12 sm:px-6 lg:px-8">
+    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-200">FAQ</p>
+    <h2 class="mt-2 text-3xl font-bold text-white">Frequently asked questions</h2>
+    <div class="mt-7 divide-y divide-white/10 border-y border-white/10">
+      {app.faqs.map((faq) => (
+        <details class="group py-5">
+          <summary class="cursor-pointer list-none pr-8 text-lg font-semibold text-white marker:content-none">
+            {faq.question}
+          </summary>
+          <p class="mt-3 max-w-2xl text-sm leading-7 text-zinc-400">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
   </section>
 </BaseLayout>
