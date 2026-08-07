@@ -183,7 +183,7 @@ import { apps } from "@/data/apps";
       ].join("\n");
 
       const subject = `Testers Club Application - ${data.get("fullName")}`;
-      const mailto = `mailto:hello@akuapps.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const mailto = `mailto:info@akuapps.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
       if (status instanceof HTMLElement) {
         status.textContent = "Opening your email app with the application details.";
