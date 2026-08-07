@@ -1,0 +1,90 @@
+---
+import PrivacyLayout from "@/layouts/PrivacyLayout.astro";
+
+/*
+  MyPlanorra data/apps.ts içinde kayıtlı değil: uygulama henüz yayımlanmadı ve
+  o dosya ana sayfayı, /apps listesini ve sitemap'i besliyor. Oraya eklemek
+  uygulamayı vaktinden önce siteye çıkarır, üstelik sitemap'e henüz var olmayan
+  bir /apps/myplanorra/ adresi yazardı. Bu yüzden sayfa yalnızca ihtiyaç duyduğu
+  iki alanı kendisi veriyor.
+
+  Metin de yer tutucu değil: MyPlanorra hiçbir veri toplamıyor, hiçbir ağ isteği
+  yapmıyor ve üçüncü taraf servis kullanmıyor. Ortak yer tutucu metin bunun
+  tersini söylediği için mağaza incelemesinde uyuşmazlık sebebi olurdu.
+*/
+const app = { slug: "myplanorra", name: "MyPlanorra" };
+---
+
+<PrivacyLayout app={app} updated="August 7, 2026" backHref="/" backLabel="Back to AkuAPPs">
+  <p>
+    MyPlanorra collects no data. There is no account, no sign-in, and no network connection: the app
+    never sends anything anywhere, because it makes no network requests at all. Everything you enter
+    stays in a database file on your own device.
+  </p>
+
+  <h2>Information We Collect</h2>
+  <p>
+    None. MyPlanorra contains no analytics, no crash reporting, no advertising, and no tracking of any
+    kind. We never see your tasks, payments, balances, savings, debts, medication records, or photos,
+    and they are never transmitted to us or to anyone else.
+  </p>
+
+  <h2>Where Your Data Is Stored</h2>
+  <p>
+    Everything you enter is saved locally on your device. The app never connects to a bank or any other
+    service, and it never asks for card numbers, banking passwords, or one-time codes. On Android,
+    automatic system backup is switched off, so your database is not copied to your Google account.
+  </p>
+
+  <h2>Permissions</h2>
+  <p>
+    <strong>Notifications</strong> are used only for local reminders you create yourself. There are no
+    push notifications and no remote server involved.
+  </p>
+  <p>
+    <strong>Camera and photo library</strong> access is used only when you attach a photo to an item in
+    the Trading section. The photo is copied into the app's own folder and never leaves your device.
+    Location and camera metadata (EXIF) are not copied. Each permission is requested the first time you
+    use the feature, never at launch.
+  </p>
+
+  <h2>Backups and Exports</h2>
+  <p>
+    You can export a backup as a JSON file and a month-end report as an Excel file. You create these
+    files yourself, and they are handed to your device's share sheet. Once you save or send such a file
+    it is outside the app and under your control; if you place it in a cloud drive or send it to
+    someone, that service's rules apply rather than ours.
+  </p>
+
+  <h2>Third Party Services</h2>
+  <p>
+    There are none. The app contains no third party analytics, advertising, or tracking libraries, and
+    shares no data with anyone. Brand icons shown next to some entries come from the open source
+    simple-icons set and are drawn from data inside the app; displaying one does not contact the brand
+    and does not imply any affiliation.
+  </p>
+
+  <h2>Children's Privacy</h2>
+  <p>
+    The app is suitable for all ages and collects no personal information from anyone, including
+    children.
+  </p>
+
+  <h2>Losing Your Data</h2>
+  <p>
+    Because your data exists in exactly one place, your device, deleting the app or losing the device
+    deletes it too. We cannot recover it, since we never had a copy. Please take backups regularly.
+  </p>
+
+  <h2>Changes To This Policy</h2>
+  <p>
+    If this policy changes, the date at the top of this page changes with it. Material changes are also
+    noted in the app's release notes.
+  </p>
+
+  <h2>Contact Us</h2>
+  <p>
+    For privacy questions about MyPlanorra, contact AkuAPPs at
+    <a href="mailto:hello@akuapps.com"> hello@akuapps.com</a>.
+  </p>
+</PrivacyLayout>
