@@ -1,0 +1,11 @@
+---
+import AppDetailLayout from "@/layouts/AppDetailLayout.astro";
+import { getAppBySlug } from "@/data/apps";
+
+const app = getAppBySlug("resteye");
+if (!app) {
+  throw new Error("RestEye app data is missing.");
+}
+---
+
+<AppDetailLayout app={app} />

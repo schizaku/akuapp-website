@@ -51,6 +51,87 @@ const placeholder = (size: string, background: string, text: string) =>
 
 export const apps: AppInfo[] = [
   {
+    slug: "resteye",
+    name: "RestEye",
+    category: "Utility",
+    tagline: "Night Light & Blue Light Filter for Eye Care.",
+    shortDescription:
+      "Protect your eyes from blue light, reduce digital eye strain, and improve sleep quality with customizable night filters and eye care exercises.",
+    description: [
+      "RestEye is a dedicated eye protection and screen wellness utility designed to reduce blue light exposure, eliminate screen glare in low-light environments, and establish healthier digital habits.",
+      "Featuring an ultra-smooth screen dimmer and scientifically tuned color spectrums (Warm Candle, Sunset Glow, Forest Green, Moonlight, Deep Night), RestEye filters harsh blue wavelengths that disrupt your natural circadian rhythm and melatonin production.",
+      "With smart automated scheduling (including local sunset-to-sunrise sync), structured 20-20-20 break reminders, and guided optometrist-designed eye exercises, RestEye helps you work and browse comfortably while keeping your eyes relaxed and rested."
+    ],
+    icon: "/assets/apps/resteye/logo.png",
+    featureGraphic: "/assets/apps/resteye/feature-graphic.png",
+    screenshots: [
+      "/assets/apps/resteye/screen-1.png",
+      "/assets/apps/resteye/screen-2.png",
+      "/assets/apps/resteye/screen-3.png",
+      "/assets/apps/resteye/screen-4.png"
+    ],
+    accent: "from-amber-400 via-orange-400 to-indigo-400",
+    features: [
+      {
+        icon: "Sparkles",
+        title: "Custom Night Filters",
+        description: "Choose from Warm Candle, Sunset Glow, Forest Green, and Moonlight presets with precision color temperature tuning."
+      },
+      {
+        icon: "Gauge",
+        title: "Deep Screen Dimmer",
+        description: "Reduce display brightness far below standard system limits for soothing reading in pitch-black rooms."
+      },
+      {
+        icon: "Bell",
+        title: "Automated Scheduling",
+        description: "Set custom hours or automatically synchronize filter activation with local astronomical sunset and sunrise."
+      },
+      {
+        icon: "Heart",
+        title: "Guided Eye Exercises",
+        description: "Structured eye relaxation routines including 20-20-20 breaks, circular tracking, and blinking therapy."
+      },
+      {
+        icon: "Zap",
+        title: "Quick Status Controls",
+        description: "Instantly toggle protection and adjust intensity directly from the notification shade without opening the app."
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Battery & Privacy First",
+        description: "Ultra-efficient overlay rendering designed for minimal battery impact with zero personal data collection."
+      }
+    ],
+    faqs: [
+      {
+        question: "How does RestEye help relieve eye strain?",
+        answer: "RestEye overlays a warm, blue-light-absorbing tint onto your screen that reduces ocular fatigue, eases harsh contrast, and supports your natural circadian rhythm before sleep."
+      },
+      {
+        question: "Can RestEye dim the screen lower than Android's minimum brightness?",
+        answer: "Yes. RestEye's deep dimmer applies an extra software shading layer, allowing you to dim the screen significantly below the factory minimum brightness in pitch-black rooms."
+      },
+      {
+        question: "Why is the 'Display Over Other Apps' permission required?",
+        answer: "RestEye needs this permission strictly to draw the protective translucent color tint over your display. It does not record, capture, or inspect your screen content."
+      },
+      {
+        question: "How does the sunset and sunrise schedule work?",
+        answer: "If enabled, RestEye calculates solar sunset and sunrise times locally on your device based on approximate location coordinates. Your location never leaves your phone."
+      },
+      {
+        question: "Where can I download RestEye?",
+        answer: "RestEye is available on Google Play. You can install it directly on any Android smartphone or tablet."
+      }
+    ],
+    appStore: { label: "Coming Soon", href: "#" },
+    googlePlay: {
+      label: "Google Play",
+      href: "https://play.google.com/store/apps/details?id=com.akuapps.resteye"
+    }
+  },
+  {
     slug: "secure-qr-scanner",
     name: "Secure QR Scanner",
     category: "Utility",

@@ -1,0 +1,66 @@
+---
+import PrivacyLayout from "@/layouts/PrivacyLayout.astro";
+import { getAppBySlug } from "@/data/apps";
+
+const app = getAppBySlug("resteye");
+if (!app) {
+  throw new Error("RestEye app data is missing.");
+}
+---
+
+<PrivacyLayout app={app} updated="October 1, 2026">
+  <p>
+    This Privacy Policy explains how AkuAPPs handles information when you use <strong>RestEye - Night Light & Blue Light Filter</strong> (Package: <code>com.akuapps.resteye</code>).
+    RestEye is an eye protection and digital screen wellness utility designed to reduce blue light exposure, eliminate screen glare in low-light environments, and establish healthier digital screen habits.
+  </p>
+
+  <h2>Information We Collect</h2>
+  <p>
+    RestEye is built with a strict privacy-first principle. We do not collect, store, or transmit any personally identifiable information (such as your name, email address, phone number, or contacts).
+  </p>
+  <ul>
+    <li><strong>Anonymized Analytics & Diagnostics:</strong> The app utilizes Google Firebase Analytics to process aggregated, non-personally identifiable technical events (e.g. app sessions, active filter presets, screen interactions). This data is strictly used to measure app stability, battery efficiency, and diagnose crashes. No personal information is associated with these events.</li>
+    <li><strong>Approximate Location (Optional):</strong> If you choose to enable the automated "Sunset to Sunrise" filter schedule, the app accesses your device's approximate location solely to calculate astronomical solar sunrise and sunset times on your device. Your location coordinates are processed strictly locally and are <strong>never stored, uploaded, or shared</strong> with our servers or third parties.</li>
+  </ul>
+
+  <h2>Device Permissions Used</h2>
+  <p>
+    To perform its core eye-care and filter functions, RestEye requests the following permissions:
+  </p>
+  <ul>
+    <li><strong>Display Over Other Apps (SYSTEM_ALERT_WINDOW):</strong> Required to render the warm translucent night filter and deep screen dimmer layer across your screen. This overlay is completely transparent to your touches and never records, captures, or monitors screen content.</li>
+    <li><strong>Foreground Service (FOREGROUND_SERVICE):</strong> Required by Android to keep the eye protection filter active and reliable in the background without being prematurely terminated by system battery optimization. A persistent notification is displayed while the filter is running.</li>
+    <li><strong>Location (ACCESS_COARSE_LOCATION / ACCESS_FINE_LOCATION):</strong> Used solely on-device to determine local solar sunrise and sunset times for automated scheduling when this feature is toggled on.</li>
+    <li><strong>Notifications (POST_NOTIFICATIONS):</strong> Used to deliver 20-20-20 eye strain break alerts and provide quick one-tap toggle controls in your device notification shade.</li>
+  </ul>
+
+  <h2>Third Party Services & Data Security</h2>
+  <p>
+    We do not sell, rent, or trade your data to third parties. All network communications related to anonymous diagnostic events via Google Firebase Analytics are transmitted securely using industry-standard TLS encryption.
+  </p>
+
+  <h2>Children's Privacy</h2>
+  <p>
+    RestEye does not knowingly collect any personal data from children under the age of 13. The application is a general screen comfort and eye wellness utility suitable for all age groups.
+  </p>
+
+  <h2>Data Retention and Control</h2>
+  <p>
+    All your filter settings, custom presets, schedules, and preferences are stored exclusively on your device. You can erase all data at any time by clearing the application storage in your device settings or uninstalling the application.
+  </p>
+
+  <h2>Changes to This Policy</h2>
+  <p>
+    We may update this Privacy Policy from time to time to reflect operational or legal updates. Any revisions will be published on this page with an updated "Last updated" date.
+  </p>
+
+  <h2>Contact Us</h2>
+  <p>
+    If you have any questions or feedback regarding this Privacy Policy or RestEye, please contact us at:
+  </p>
+  <p>
+    <strong>Developer:</strong> AkuAPPs<br />
+    <strong>Email:</strong> <a href="mailto:info@akuapps.com">info@akuapps.com</a> / <a href="mailto:aykutyilm4z.90@gmail.com">aykutyilm4z.90@gmail.com</a><br />
+    <strong>Website:</strong> <a href="https://akuapps.com">https://akuapps.com</a>
+  </p>
+</PrivacyLayout>
