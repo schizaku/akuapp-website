@@ -1,0 +1,11 @@
+---
+import AppDetailLayout from "@/layouts/AppDetailLayout.astro";
+import { getAppBySlug } from "@/data/apps";
+
+const app = getAppBySlug("memcleaner");
+if (!app) {
+  throw new Error("MemCleaner app data is missing.");
+}
+---
+
+<AppDetailLayout app={app} />

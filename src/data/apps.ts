@@ -51,6 +51,89 @@ const placeholder = (size: string, background: string, text: string) =>
 
 export const apps: AppInfo[] = [
   {
+    slug: "memcleaner",
+    name: "MemCleaner",
+    category: "Utility",
+    tagline: "AI Phone Cleaner & Smart Storage Booster.",
+    shortDescription:
+      "Clean junk files, delete duplicate photos, boost memory, and free up storage with AI smart cleaner.",
+    description: [
+      "MemCleaner is an advanced, AI-powered device storage cleaner and memory optimization suite designed to keep your smartphone running smoothly, securely, and at peak performance.",
+      "Using intelligent on-device visual analysis, MemCleaner quickly identifies duplicate photos, similar burst shots, blurry images, and oversized video files while safely preserving your best memories. Its deep cache and junk engine removes temporary logs, obsolete APKs, and residual app files without touching your important personal data.",
+      "Beyond storage cleaning, MemCleaner features a PIN-protected Secret Vault for private photos and documents, a high-frequency acoustic wave speaker cleaner to expel trapped water and dust, and smart contact & spam calendar cleanup tools. Everything runs locally on your device with zero personal data collection."
+    ],
+    icon: "/assets/apps/memcleaner/logo.png",
+    featureGraphic: "/assets/apps/memcleaner/feature-graphic.png",
+    screenshots: [
+      "/assets/apps/memcleaner/screen-1.png",
+      "/assets/apps/memcleaner/screen-2.png",
+      "/assets/apps/memcleaner/screen-3.png",
+      "/assets/apps/memcleaner/screen-4.png",
+      "/assets/apps/memcleaner/screen-5.png",
+      "/assets/apps/memcleaner/screen-6.png"
+    ],
+    accent: "from-cyan-400 via-sky-400 to-indigo-500",
+    features: [
+      {
+        icon: "Sparkles",
+        title: "AI Duplicate & Similar Photo Cleaner",
+        description: "Intelligent perceptual matching identifies burst shots, duplicates, and blurry images, picking the sharpest shot to keep."
+      },
+      {
+        icon: "Gauge",
+        title: "Deep Junk & Memory Booster",
+        description: "Safely clear residual app caches, system junk, temporary files, and obsolete APKs to recover gigabytes of storage."
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Encrypted Secret Vault",
+        description: "Lock sensitive photos, personal videos, and documents behind biometric authentication and secure PIN encryption."
+      },
+      {
+        icon: "Zap",
+        title: "Acoustic Speaker Cleaner",
+        description: "Eject trapped water droplets and fine dust particles using tuned high-frequency sinusoidal sound wave vibrations."
+      },
+      {
+        icon: "History",
+        title: "Smart Contact & Calendar Cleanup",
+        description: "Merge duplicate contacts, find incomplete entries, and eliminate intrusive calendar invite spam in one tap."
+      },
+      {
+        icon: "BarChart3",
+        title: "Real-Time Storage & RAM Dashboard",
+        description: "Interactive visual monitors give you instant clarity into device storage distribution and live memory utilization."
+      }
+    ],
+    faqs: [
+      {
+        question: "How does the AI Duplicate Photo detection work?",
+        answer: "MemCleaner processes image hashes and visual fingerprints directly on your device. It compares lighting, structure, and capture timestamps without ever uploading your private photos to the cloud."
+      },
+      {
+        question: "Will cleaning junk delete my personal files?",
+        answer: "No. The deep junk cleaner strictly targets safe-to-delete system caches, temporary logs, thumbnail caches, and leftover application data. Your personal files, photos, and chat histories remain completely untouched."
+      },
+      {
+        question: "How does the Speaker Cleaner remove water and dust?",
+        answer: "The speaker cleaner plays scientifically calibrated sonic audio frequencies between 165Hz and 300Hz that physically vibrate the speaker diaphragm, pushing out moisture and trapped debris."
+      },
+      {
+        question: "Is my personal data uploaded or shared with external servers?",
+        answer: "Never. MemCleaner adheres to a strict zero-data-collection policy. All scans, photo analysis, and vault encryptions happen 100% locally on your smartphone."
+      },
+      {
+        question: "Where can I download MemCleaner?",
+        answer: "MemCleaner is available for download on the Google Play Store for Android smartphones and tablets."
+      }
+    ],
+    appStore: { label: "Coming Soon", href: "#" },
+    googlePlay: {
+      label: "Google Play",
+      href: "https://play.google.com/store/apps/details?id=com.akuapps.memcleaner"
+    }
+  },
+  {
     slug: "resteye",
     name: "RestEye",
     category: "Utility",

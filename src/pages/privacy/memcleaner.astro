@@ -1,0 +1,82 @@
+---
+import PrivacyLayout from "@/layouts/PrivacyLayout.astro";
+import { getAppBySlug } from "@/data/apps";
+
+const app = getAppBySlug("memcleaner");
+if (!app) {
+  throw new Error("MemCleaner app data is missing.");
+}
+---
+
+<PrivacyLayout app={app} updated="October 2, 2026">
+  <p>
+    This Privacy Policy explains how AkuAPPs handles information when you use <strong>MemCleaner - AI Smart Phone Cleaner & Storage Booster</strong> (Package: <code>com.akuapps.memcleaner</code>).
+    MemCleaner is an all-in-one device cleaning, storage optimization, and privacy management utility designed to help users identify redundant files, safely reclaim storage capacity, organize multimedia, and protect sensitive media on Android devices.
+  </p>
+
+  <h2>Core Principle: 100% On-Device Processing</h2>
+  <p>
+    MemCleaner operates under a strict <strong>privacy-first, zero-knowledge architecture</strong>. All scanning algorithms, artificial intelligence image similarity analyses, file indexings, and media categorizations are performed entirely on your physical device. <strong>We do not upload, host, transmit, or sell your private photos, videos, audio files, documents, contacts, or calendar entries to any external server or cloud database.</strong>
+  </p>
+
+  <h2>Information We Collect and How We Use It</h2>
+  <p>
+    MemCleaner does not collect or store any personally identifiable information (such as your legal name, physical address, email address, or phone number).
+  </p>
+  <ul>
+    <li><strong>Anonymous Diagnostic & Usage Events:</strong> The application may use Google Firebase Analytics to collect aggregated, non-personally identifiable diagnostic events (e.g. app sessions, crash logs, device hardware model, OS version). This data is strictly utilized to troubleshoot bugs, monitor application responsiveness, and optimize memory consumption. No personal media or identifying device serial numbers are ever associated with these metrics.</li>
+    <li><strong>Local Cache & Preferences:</strong> User settings (such as selected language, theme preference, and duplicate scan sensitivity thresholds) are stored securely in local app storage on your device.</li>
+  </ul>
+
+  <h2>Device Permissions Requested and Their Purpose</h2>
+  <p>
+    To perform its cleaning, optimization, and media management functions, MemCleaner may request specific Android runtime permissions. Each permission is requested strictly in context and only utilized for user-initiated actions:
+  </p>
+  <ul>
+    <li><strong>Media & Storage Access (READ_MEDIA_IMAGES, READ_MEDIA_VIDEO, READ_MEDIA_AUDIO / MANAGE_EXTERNAL_STORAGE):</strong> Required to scan for duplicate and similar photos, identify blurry shots, locate oversized video files, and find residual junk and cache files across your storage. These files are processed locally through perceptual hashing algorithms and are never uploaded or transferred off your device.</li>
+    <li><strong>Contacts (READ_CONTACTS, WRITE_CONTACTS):</strong> Used solely when you choose to use the "Smart Contacts Cleanup" feature. The app analyzes your local address book to detect duplicate names, identical phone numbers, and incomplete contact entries, allowing you to merge or remove them. Contact data never leaves your device.</li>
+    <li><strong>Calendar (READ_CALENDAR, WRITE_CALENDAR):</strong> Used solely when you execute the "Calendar Spam Cleanup" tool to detect unwanted invitation spam, suspicious phishing links, or obsolete reminder entries created by malicious web calendars.</li>
+    <li><strong>Notifications (POST_NOTIFICATIONS):</strong> Optional permission used to deliver periodic storage status reminders, completed scan summaries, and clean recommendations.</li>
+    <li><strong>Audio Output:</strong> Used exclusively to generate high-frequency acoustic sound waves (165Hz–300Hz) for the "Speaker Cleaner" feature to mechanically vibrate and expel water droplets and dust particles from your device speaker grills.</li>
+  </ul>
+
+  <h2>Encrypted Secret Vault Security</h2>
+  <p>
+    MemCleaner features a built-in "Secret Vault" allowing users to securely conceal sensitive photos, videos, and private notes:
+  </p>
+  <ul>
+    <li>Items placed into the Secret Vault are encrypted and stored in private application directories inaccessible to other third-party applications.</li>
+    <li>Vault access is protected by your self-selected master PIN and optional device biometric authentication (Fingerprint / Face Unlock).</li>
+    <li>AkuAPPs does not possess recovery keys, backdoors, or access to your encrypted vault. If you uninstall the application without unhiding your files or clearing your storage, vault data may be permanently removed.</li>
+  </ul>
+
+  <h2>Third-Party Services & Data Security</h2>
+  <p>
+    We do not sell, license, rent, or trade your data. The only third-party service integrated into the app is Google Firebase Analytics (by Google LLC) for anonymous crash reporting and performance monitoring. Any network communications comply with industry-standard TLS 1.3 encryption protocols.
+  </p>
+
+  <h2>Children's Privacy (COPPA & Google Play Policy Compliance)</h2>
+  <p>
+    MemCleaner is a general device utility suitable for users of all ages and does not knowingly solicit or collect personal information from children under the age of 13.
+  </p>
+
+  <h2>Data Retention and User Control</h2>
+  <p>
+    Because all cleaning operations and vault items reside locally on your phone, you retain 100% control over your data at all times. You can wipe all application configurations, cached states, and vault files instantly by clearing application storage in your Android System Settings or by uninstalling the application.
+  </p>
+
+  <h2>Changes to This Privacy Policy</h2>
+  <p>
+    We may periodically update this Privacy Policy to reflect application updates or regulatory amendments. Any revisions will be published here with an updated "Last updated" date.
+  </p>
+
+  <h2>Contact Us</h2>
+  <p>
+    If you have any questions, inquiries, or feedback regarding this Privacy Policy or MemCleaner, please reach out to us at:
+  </p>
+  <p>
+    <strong>Developer:</strong> AkuAPPs<br />
+    <strong>Email:</strong> <a href="mailto:info@akuapps.com">info@akuapps.com</a> / <a href="mailto:aykutyilm4z.90@gmail.com">aykutyilm4z.90@gmail.com</a><br />
+    <strong>Official Website:</strong> <a href="https://akuapps.com">https://akuapps.com</a>
+  </p>
+</PrivacyLayout>
