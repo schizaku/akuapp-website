@@ -24,3 +24,8 @@ export const storeProfileLinks: StoreProfileLink[] = [
     href: "https://play.google.com/store/apps/developer?id=Aku+APPs&hl=tr"
   }
 ];
+
+export const storeHubLink = {
+  label: "Aku APPs Store",
+  href: "/store"
+} as const;

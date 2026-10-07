@@ -1,0 +1,142 @@
+---
+import "../styles/global.css";
+import GoogleTag from "@/components/GoogleTag.astro";
+import { storeProfileLinks } from "@/data/socialLinks";
+
+const appStoreUrl = storeProfileLinks.find((link) => link.label === "App Store")?.href;
+const googlePlayUrl = storeProfileLinks.find((link) => link.label === "Google Play")?.href;
+
+if (!appStoreUrl || !googlePlayUrl) {
+  throw new Error("Aku APPs store profile links are missing.");
+}
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const logoUrl = new URL("/assets/brand/akuapps-logo.jpeg", Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <GoogleTag />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09090b" />
+    <meta
+      name="description"
+      content="Open the Aku APPs profile in the right app store for your device."
+    />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" href="/assets/brand/akuapps-logo.jpeg" />
+    <meta property="og:site_name" content="AkuAPPs" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Aku APPs Store" />
+    <meta
+      property="og:description"
+      content="Find Aku APPs on the App Store and Google Play."
+    />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={logoUrl} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Aku APPs Store" />
+    <meta
+      name="twitter:description"
+      content="Find Aku APPs on the App Store and Google Play."
+    />
+    <meta name="twitter:image" content={logoUrl} />
+    <title>Aku APPs Store</title>
+  </head>
+  <body class="bg-zinc-950 text-zinc-100 antialiased">
+    <main class="grid min-h-screen place-items-center px-4 py-10">
+      <section class="w-full max-w-md rounded-lg border border-white/10 bg-zinc-950/90 p-6 text-center shadow-2xl shadow-black/30 sm:p-8">
+        <img
+          src="/assets/brand/akuapps-logo.jpeg"
+          alt="Aku APPs logo"
+          class="mx-auto h-24 w-24 rounded-2xl border border-white/10 object-cover shadow-glow"
+        />
+        <p class="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-rose-200">Aku APPs</p>
+        <h1 class="mt-3 text-3xl font-black tracking-normal text-white">Choose your store</h1>
+        <p id="store-status" class="mx-auto mt-4 max-w-sm text-sm leading-6 text-zinc-300" aria-live="polite">
+          Select a store to discover all Aku APPs.
+        </p>
+
+        <div class="mt-7 grid gap-3 sm:grid-cols-2">
+          <a
+            href={appStoreUrl}
+            class="rounded-md border border-white/15 bg-white px-4 py-3 text-sm font-semibold text-zinc-950 transition hover:-translate-y-0.5 hover:bg-zinc-200"
+            data-store="app_store"
+          >
+            App Store
+          </a>
+          <a
+            href={googlePlayUrl}
+            class="rounded-md border border-white/15 bg-white px-4 py-3 text-sm font-semibold text-zinc-950 transition hover:-translate-y-0.5 hover:bg-zinc-200"
+            data-store="google_play"
+          >
+            Google Play
+          </a>
+        </div>
+
+        <a href="/" class="mt-7 inline-block text-sm text-zinc-400 transition hover:text-white">
+          Back to AkuAPPs.com
+        </a>
+      </section>
+    </main>
+
+    <script is:inline define:vars={{ appStoreUrl, googlePlayUrl }}>
+      (() => {
+        const userAgent = navigator.userAgent || "";
+        const userAgentData = Reflect.get(navigator, "userAgentData") || {};
+        const platform = userAgentData.platform || Reflect.get(navigator, "platform") || "";
+        const maxTouchPoints = navigator.maxTouchPoints || 0;
+        const isAndroid = /android/i.test(userAgent);
+        const isIOS =
+          /iphone|ipad|ipod/i.test(userAgent) ||
+          (/mac/i.test(platform) && maxTouchPoints > 1);
+
+        if (!isAndroid && !isIOS) {
+          return;
+        }
+
+        const platformName = isIOS ? "ios" : "android";
+        const targetStore = isIOS ? "app_store" : "google_play";
+        const targetUrl = isIOS ? appStoreUrl : googlePlayUrl;
+        const status = document.getElementById("store-status");
+        const searchParams = new URLSearchParams(window.location.search);
+        let didRedirect = false;
+
+        if (status) {
+          status.textContent = `Opening ${isIOS ? "the App Store" : "Google Play"}...`;
+        }
+
+        const redirect = () => {
+          if (didRedirect) {
+            return;
+          }
+
+          didRedirect = true;
+          window.location.replace(targetUrl);
+        };
+
+        window.setTimeout(redirect, 450);
+
+        if (typeof window.gtag === "function") {
+          window.gtag("event", "store_profile_redirect", {
+            platform: platformName,
+            target_store: targetStore,
+            utm_source: searchParams.get("utm_source") || "",
+            utm_medium: searchParams.get("utm_medium") || "",
+            utm_campaign: searchParams.get("utm_campaign") || "",
+            page_referrer: document.referrer || "",
+            transport_type: "beacon",
+            event_callback: redirect,
+            event_timeout: 350
+          });
+
+          return;
+        }
+
+        redirect();
+      })();
+    </script>
+  </body>
+</html>

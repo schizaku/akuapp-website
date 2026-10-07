@@ -1,5 +1,6 @@
 ---
 import { apps } from "@/data/apps";
+import { storeHubLink } from "@/data/socialLinks";
 ---
 
 <footer class="border-t border-white/10 bg-zinc-950/72">
@@ -20,8 +21,7 @@ import { apps } from "@/data/apps";
     <div>
       <h2 class="text-sm font-semibold text-white">Stores</h2>
       <div class="mt-4 grid gap-3 text-sm text-zinc-400">
-        <a class="transition hover:text-white" href="#">App Store profile</a>
-        <a class="transition hover:text-white" href="#">Google Play profile</a>
+        <a class="transition hover:text-white" href={storeHubLink.href}>{storeHubLink.label}</a>
       </div>
     </div>
     <div>
